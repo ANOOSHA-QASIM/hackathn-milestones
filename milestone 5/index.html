@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shareable Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Shareable Resume Builder</h1>
+
+    <!-- Form to capture user input -->
+    <div class="form-container">
+        <form id="resumeForm">
+            <h3>Personal Information</h3>
+
+            <label for="name">Name: <span style="color:red;">*</span></label>
+            <input type="text" id="name" name="name"><br><br>
+            
+            <label for="phone">Phone: <span style="color:red;">*</span></label>
+            <input type="text" id="phone" name="phone"><br><br>
+            
+            <label for="email">Email: <span style="color:red;">*</span></label>
+            <input type="email" id="email" name="email"><br><br>
+            
+            <label for="linkedin">LinkedIn:</label>
+            <input type="text" id="linkedin" name="linkedin"><br><br>
+
+            <h3>Profile Picture</h3>
+            <label for="profilePicture">Upload Picture: <span style="color:red;">*</span></label>
+            <input type="file" id="profilePicture" accept="image/*"><br><br>
+
+            <h3>Career Objective</h3>
+            <textarea id="objective" name="objective" rows="4"></textarea><br><br>
+
+            <h3>Education <span style="color:red;">*</span></h3>
+            <textarea id="education" name="education" rows="3"></textarea><br><br>
+
+            <h3>Skills <span style="color:red;">*</span></h3>
+            <textarea id="skills" name="skills" rows="3" placeholder="Comma separated (e.g., HTML, CSS, JavaScript)"></textarea><br><br>
+
+            <h3>Certifications</h3>
+            <textarea id="certifications" name="certifications" rows="3"></textarea><br><br>
+
+            <h3>Work Experience</h3>
+            <textarea id="experience" name="experience" rows="4"></textarea><br><br>
+
+            <button type="button" onclick="generateUserResume()">Generate Resume</button>
+        </form>
+    </div>
+
+    <!-- Dynamic Resume Display -->
+    <div class="resume-container">
+        <div class="left-section">
+    
+            <img src="" class="profile-picture" id="profilePictureDisplay">
+            <section id="objectiveSection">
+                <h3>Career Objective</h3>
+                <p id="objectiveDisplay"></p>
+            </section>
+
+            <section id="certificationsSection">
+                <h3>Certifications</h3>
+                <p id="certificationsDisplay"></p>
+            </section>
+        </div>
+        
+        <div class="right-section">
+            <h1>Resume</h1>
+            <section id="personalInfoSection">
+                <h3>Personal Information</h3>
+                <p><b>Name:</b> <span id="nameDisplay"></span></p>
+                <p><b>Phone:</b> <span id="phoneDisplay"></span></p>
+                <p><b>Email:</b> <span id="emailDisplay"></span></p>
+                <p><b>LinkedIn:</b> <span id="linkedinDisplay"></span></p>
+            </section>
+
+            <section id="educationSection">
+                <h3>Education</h3>
+                <p id="educationDisplay"></p>
+            </section>
+
+            <section id="skillsSection">
+                <h3>Skills</h3>
+                <ul id="skillsDisplay"></ul>
+            </section>
+
+            <section id="experienceSection">
+                <h3>Work Experience</h3>
+                <p id="experienceDisplay"></p>
+            </section>
+
+            <button type="button" id="toggleSkillsBtn" onclick="toggleResumeSkills()">Toggle Skills</button>
+        </div>
+    </div>
+
+    <div id="shareable-link-container" style="display: none;">
+        <p>Shareable link:</p>
+        <a id="shareable-link" target="_blank"></a>
+    </div>
+    
+
+    <button type="button" onclick="downloadResumeAsPDF()">Download as PDF</button>
+
+   <script src="script.js"></script>
+</body>
+</html>
